@@ -22,19 +22,19 @@ def circularMask(x, y, width, height):
 
 def squareMask(x, y, width, height):
 
-	distance_x = abs(x - width * 0.5)
-	distance_y = abs(y - height * 0.5)
-	distance = distance_x + distance_y
+    distance_x = abs(x - width * 0.5)
+    distance_y = abs(y - height * 0.5)
+    distance = distance_x + distance_y
 
-	edgeMargin = max(width, height) * 0.5
-	maxDistance = (width + height) * 0.5 - edgeMargin
+    edgeMargin = max(width, height) * 0.5
+    maxDistance = (width + height) * 0.5 - edgeMargin
 
-	scale = distance / maxDistance
+    scale = distance / maxDistance
 
-	alpha = 1.0
-	gradient = scale ** alpha
+    alpha = 1.0
+    gradient = scale ** alpha
 
-	return max(0.0, 1.0 - gradient)
+    return max(0.0, 1.0 - gradient)
 
 
 def genericFalloff(width, height, falloffFunction):
@@ -50,7 +50,6 @@ def genericFalloff(width, height, falloffFunction):
 def circularFalloff(width, height):
     return genericFalloff(width, height, circularMask)
 
+
 def squareFalloff(width, height):
-	return genericFalloff(width, height, squareMask)
-
-
+    return genericFalloff(width, height, squareMask)
