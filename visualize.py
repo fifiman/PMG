@@ -15,7 +15,6 @@ def write_grayscale(arr, directory):
 
 def write_color(arr, directory):
 
-
     DARK_BLUE = (0, 0, 139)
     LIGHT_BLUE = (0, 0, 255)
     SAND = (255, 184, 77)
@@ -30,7 +29,7 @@ def write_color(arr, directory):
                (DARK_GREEN, 0.6), (DARK_BROWN, 0.75),
                (SNOW, 1.00)]
 
-    regions.sort(key = lambda x : x[1])
+    regions.sort(key=lambda x: x[1])
 
     img = Image.new("RGB", arr.shape)
     pixels = img.load()
@@ -40,8 +39,8 @@ def write_color(arr, directory):
 
             for regionColor, regionHeight in regions:
 
-                if arr[i,j] <= regionHeight:
-                    pixels[i,j] = regionColor
+                if arr[i, j] <= regionHeight:
+                    pixels[i, j] = regionColor
                     break
 
     img.save(directory)
